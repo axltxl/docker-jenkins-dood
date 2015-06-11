@@ -17,7 +17,7 @@ RUN apt-get update \
 #
 # Give sudo privileges to jenkins
 #
-RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+RUN echo "jenkins ALL=NOPASSWD: /bin/docker.io" >> /etc/sudoers
 
 #
 # The sudo workaround
