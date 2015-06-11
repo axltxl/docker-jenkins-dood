@@ -44,8 +44,8 @@ docker run -d -v $(which docker):/bin/docker.io \
 * Your host and your container will use the same version of Docker, always.
 
 ###Disadvantages
-* Technically speaking, `jenkins` user has `root` access to the host
-* If you want to manage a complete clean Docker environment inside your Jenkins, this one's not for you
+* Although this image does not require `privileged` mode, it does not make it any safer because it can do `docker` things directly on the host, so you have to be aware of this
+* If you want to manage a complete clean Docker environment inside your Jenkins, this one's not for you, you're looking for *DinD*
 
 ###The `sudo` workaround
 According to the reading by Mouat:
