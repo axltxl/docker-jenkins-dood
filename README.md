@@ -35,6 +35,16 @@ docker run -d -v $(which docker):/bin/docker.io \
               axltxl/jenkins-dood
 ```
 
+###If you are using CoreOS
+```bash
+docker run -d -v $(which docker):/bin/docker.io \ 
+              -v /var/run/docker.sock:/var/run/docker.sock \
+              -v /path/to/your/jenkins/home:/var/jenkins_home \
+              -v /usr/lib/libdevmapper.so.1.02:/usr/lib/libdevmapper.so.1.02 \
+              -p 8080:8080 \
+              axltxl/jenkins-dood
+```
+
 ###Advantages
 * No `privileged` mode needed
 * Simpler, Jenkins will use it underlying host's Docker installation
