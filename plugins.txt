@@ -1,4 +1,5 @@
 scm-api:latest
+scm-sync-configuration:latest
 git-client:latest
 git:latest
 greenballs:latest
