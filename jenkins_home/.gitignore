@@ -1,4 +1,8 @@
-*
-!/jobs/**/config.xml
+/*
+!/jobs
+/jobs/*
+!/jobs/dood-test
+/jobs/dood-test/*
+!/jobs/dood-test/config.xml
 !.gitignore
 
