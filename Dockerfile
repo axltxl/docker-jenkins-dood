@@ -14,20 +14,18 @@ RUN apt-get update \
       && apt-get install -y sudo supervisor \
       && rm -rf /var/lib/apt/lists/*
 
-#
-# Give sudo privileges to jenkins
-#
-RUN echo "jenkins ALL=NOPASSWD: /bin/docker.io" >> /etc/sudoers
+# Install docker-engine
+# According to Petazzoni's article:
+# ---------------------------------
+# "Former versions of this post advised to bind-mount the docker binary from
+# the host to the container. This is not reliable anymore, because the Docker
+# Engine is no longer distributed as (almost) static libraries."
+RUN curl -sSL https://get.docker.com/ | sh
 
-#
-# The sudo workaround
-#
-COPY docker.sh /usr/bin/docker
-RUN chmod +x /usr/bin/docker
+# Make sure jenkins user has docker privileges
+RUN usermod -aG docker jenkins
 
-#
 # Install initial plugins
-#
 USER jenkins
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
