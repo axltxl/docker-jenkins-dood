@@ -1,0 +1,10 @@
+---
+# vim: ft=yaml
+# docker-compose recipe for easiness
+jenkins:
+  build: .
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./jenkins_home/jobs:/var/jenkins_home/jobs
+  ports:
+    - "8080:8080"

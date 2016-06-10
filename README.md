@@ -21,15 +21,19 @@ docker pull axltxl/jenkins-dood
 
 ###However, if you wish to build it instead ...
 ```bash
-git clone https://github.com/axltxl/docker-jenkins-dood.git 
+git clone https://github.com/axltxl/docker-jenkins-dood.git
 cd jenkins-dood
 docker build -t jenkins-dood .
 ```
 
+### You can easily test it as well with docker-compose
+```bash
+docker-compose up
+```
+
 ###Now, time to have fun with it...
 ```bash
-docker run -d -v $(which docker):/bin/docker.io \ 
-              -v /var/run/docker.sock:/var/run/docker.sock \
+docker run -d -v /var/run/docker.sock:/var/run/docker.sock \
               -v /path/to/your/jenkins/home:/var/jenkins_home \
               -p 8080:8080 \
               axltxl/jenkins-dood
@@ -47,22 +51,13 @@ docker run -d -v $(which docker):/bin/docker.io \
 * Although this image does not require `privileged` mode, it does not make it any safer because it can do `docker` things directly on the host, so you have to be aware of this
 * If you want to manage a complete clean Docker environment inside your Jenkins, this one's not for you, you're looking for *DinD*
 
-###The `sudo` workaround
-According to the reading by Mouat:
-> We need to give the jenkins user sudo privileges in order to be able to run 
-> Docker commands inside the container. Alternatively we could have added the 
-> jenkins user to the Docker group, which avoids the need to prefix all Docker 
-> commands with ‘sudo’, but is non-portable due to the changing gid of the group.
-
-The problem with this is that it is actually necessary to `sudo docker` inside the container in order to use Docker, although it seems like a minor thing, it could become an issue for any tools expecting Docker to be available as it is supposed to (Jenkins plugins \*cough\* \*cough\*), since they don't expect to `sudo docker` at all. In order to *fix* this and still obtain a fairly smooth Docker experience inside the container, you'll just have to map you `docker` executable to the container's `/bin/docker.io` and the container's wrapper script (located at `/usr/bin/docker`) will take care of it.
-
 ---
 
 ![](http://i.imgur.com/MEFY0F5.gif)
 
-> What is the most resilient parasite? Bacteria? A virus? An intestinal worm? 
-> An idea. Resilient... highly contagious. Once an idea has taken hold of the 
-> brain it's almost impossible to eradicate. An idea that is fully formed - 
+> What is the most resilient parasite? Bacteria? A virus? An intestinal worm?
+> An idea. Resilient... highly contagious. Once an idea has taken hold of the
+> brain it's almost impossible to eradicate. An idea that is fully formed -
 > fully understood - that sticks; right in there somewhere.
 
 *Cobb ("Inception" by Mr. Christopher Nolan), 2010*
