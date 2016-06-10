@@ -3,3 +3,7 @@ scm-sync-configuration:latest
 git-client:latest
 git:latest
 greenballs:latest
+ssh-slaves:latest
+token-macro:latest
+durable-task:latest
+docker-plugin:latest
