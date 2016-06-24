@@ -1,3 +1,6 @@
+structs:latest
+workflow-step-api:latest
+workflow-scm-step:latest
 scm-api:latest
 scm-sync-configuration:latest
 git-client:latest
