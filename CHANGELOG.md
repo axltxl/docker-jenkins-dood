@@ -3,12 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## Release `0.3`
 ### Added
-* Initial support for jenkins2
-* Several plugins added for jenkins2 support
+* Initial support for `jenkins2`
+* Several plugins added for `jenkins2` support
 * All plugins inside plugins.txt have fixed versions instead of 'latest'
 
 ### Fixed
-* jenkins base image has now been fixed to 2.7.1 for the sake of not breaking
+* `jenkins` base image has now been fixed to `2.7.1` for the sake of not breaking
   the docker image any longer.
 
 ## Release `0.2`
