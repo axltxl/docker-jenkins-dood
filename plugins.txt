@@ -5,9 +5,9 @@ scm-api:1.2
 scm-sync-configuration:0.0.9
 credentials:2.1.4
 mailer:1.17
-junit:1.2
+junit:1.15
 subversion:1.39
-script-security:1.13
+script-security:1.21
 matrix-project:1.7.1
 ssh-credentials:1.12
 git-client:1.19.7
