@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+### Fixed
+* Updated docker-plugin to version `0.16.1`
+
 ## Release `0.3`
 ### Added
 * Initial support for `jenkins2`
