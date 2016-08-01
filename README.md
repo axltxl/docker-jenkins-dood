@@ -26,6 +26,13 @@ cd jenkins-dood
 docker build -t jenkins-dood .
 ```
 
+#### You can optionally set `docker-engine` version at build time through the use of the `docker_version` build argument, like so:
+```bash
+# Default docker_version is 1.11.2
+docker build --build-arg docker_version=1.12.0 -t jenkins-dood .
+```
+
+
 ### You can easily test it as well with docker-compose
 ```bash
 docker-compose up
